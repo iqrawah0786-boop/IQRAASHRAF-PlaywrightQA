@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCRUM-101 QA Executive Summary</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f7fb; color: #122033; margin: 0; padding: 24px; }
+    .card { max-width: 1200px; margin: auto; background: white; border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,.08); overflow: hidden; }
+    .header { background: linear-gradient(135deg, #0f6cbd, #6d28d9); color: white; padding: 24px 28px; }
+    .header h1 { margin: 0 0 6px; font-size: 26px; }
+    .header p { margin: 0; opacity: .95; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid #e5e7eb; text-align: left; }
+    th { background: #eef4ff; color: #1d4ed8; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+    .pass { color: #15803d; font-weight: bold; }
+    .summary { padding: 18px 28px; background: #fbfdff; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1>SCRUM-101 QA Executive Summary</h1>
+      <p>Beautiful test execution overview for manager review</p>
+    </div>
+    <div class="summary">
+      <strong>Total Test Cases:</strong> 11 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Passed:</strong> 11 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Status:</strong> PASS
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Test Case ID</th>
+          <th>Test Case Name</th>
+          <th>Module</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Execution Date</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>TC-01</td><td>Successful login to inventory</td><td>Authentication</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Login with valid credentials lands on inventory page</td></tr>
+        <tr><td>TC-02</td><td>Invalid login error handling</td><td>Authentication</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Invalid password shows authentication error</td></tr>
+        <tr><td>TC-03</td><td>Add a single product to cart</td><td>Cart</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Single item added and visible in cart badge</td></tr>
+        <tr><td>TC-04</td><td>Add multiple products to cart</td><td>Cart</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Multiple items added successfully</td></tr>
+        <tr><td>TC-05</td><td>Remove a product from the cart</td><td>Cart</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Item removed and cart count updates</td></tr>
+        <tr><td>TC-06</td><td>Review the cart page</td><td>Cart</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Cart shows item details and checkout entry</td></tr>
+        <tr><td>TC-07</td><td>Validate missing checkout fields</td><td>Checkout</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Required field validation blocks progress</td></tr>
+        <tr><td>TC-08</td><td>Advance checkout with valid values</td><td>Checkout</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Valid data moves to order overview</td></tr>
+        <tr><td>TC-09</td><td>Finish the order successfully</td><td>Checkout</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Order confirmation page displayed</td></tr>
+        <tr><td>TC-10</td><td>Cancel checkout and return to products</td><td>Checkout</td><td>High</td><td class="pass">PASS</td><td>2026-07-30</td><td>Checkout cancelled successfully</td></tr>
+        <tr><td>TC-11</td><td>Back Home returns to inventory</td><td>Checkout</td><td>Medium</td><td class="pass">PASS</td><td>2026-07-30</td><td>Back Home navigates to products page</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+Test Case ID,Test Case Name,Module,Priority,Status,Execution Date,Notes
+TC-01,Successful login to inventory,Authentication,High,PASS,2026-07-30,Login with valid credentials lands on inventory page
+TC-02,Invalid login error handling,Authentication,High,PASS,2026-07-30,Invalid password shows authentication error
+TC-03,Add a single product to cart,Cart,High,PASS,2026-07-30,Single item added and visible in cart badge
+TC-04,Add multiple products to cart,Cart,High,PASS,2026-07-30,Multiple items added successfully
+TC-05,Remove a product from the cart,Cart,High,PASS,2026-07-30,Item removed and cart count updates
+TC-06,Review the cart page,Cart,High,PASS,2026-07-30,Cart shows item details and checkout entry
+TC-07,Validate missing checkout fields,Checkout,High,PASS,2026-07-30,Required field validation blocks progress
+TC-08,Advance checkout with valid values,Checkout,High,PASS,2026-07-30,Valid data moves to order overview
+TC-09,Finish the order successfully,Checkout,High,PASS,2026-07-30,Order confirmation page displayed
+TC-10,Cancel checkout and return to products,Checkout,High,PASS,2026-07-30,Checkout cancelled successfully
+TC-11,Back Home returns to inventory,Checkout,Medium,PASS,2026-07-30,Back Home navigates to products page
