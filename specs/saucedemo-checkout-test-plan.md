@@ -1,7 +1,7 @@
 # SauceDemo Checkout Test Plan
 
 ## Overview
-This plan covers the checkout workflow for the SauceDemo e-commerce application for user story SCRUM-101. The scenarios focus on cart review, mandatory checkout form validation, order summary, order completion, and cancellation behavior.
+This expanded plan covers the complete checkout workflow for the SauceDemo application described in SCRUM-101. It includes inventory exploration, cart management, checkout form validation, order summary review, cancellation, confirmation, and navigation behavior.
 
 ## Application Under Test
 - URL: https://www.saucedemo.com
@@ -9,63 +9,67 @@ This plan covers the checkout workflow for the SauceDemo e-commerce application 
 - Password: secret_sauce
 
 ## Scope
-- Happy path checkout from product selection to order confirmation
-- Mandatory field validation for checkout information
-- Navigation and cancellation flow during checkout
-- Cart review and financial summary validation
+- Login and authentication behaviors
+- Product inventory browsing and cart interactions
+- Cart review and total calculation
+- Checkout information validation
+- Order overview and confirmation
+- Navigation and cancellation behavior
+- Negative and edge scenarios aligned with the story business rules
 
 ## Test Scenarios
 
-### TC01 - Complete checkout from cart to confirmation
-**Objective:** Verify that a logged-in user can review the cart, enter valid information, review the order, and complete the purchase.
+### TC01 - Successful login to the inventory page
+- Verify that a valid user can log in and land on the products page.
 
-**Steps:**
-1. Log in with the provided credentials.
-2. Add one or more products to the cart.
-3. Open the cart and verify that the selected items and total are shown.
-4. Click Checkout.
-5. Enter valid first name, last name, and postal code.
-6. Continue to the overview page.
-7. Review the order summary and click Finish.
+### TC02 - Invalid login is rejected with an error
+- Verify that invalid credentials show an authentication error and keep the user on the login page.
 
-**Expected Results:**
-- The cart displays the selected products and total amount.
-- The user reaches the information form and then the overview page.
-- The order confirmation page shows a success message and a Back Home button.
+### TC03 - Inventory products are visible and available for selection
+- Verify that the inventory page loads products and that the Add to Cart actions are available.
 
-### TC02 - Validate mandatory checkout fields
-**Objective:** Ensure the checkout form prevents progress when required fields are missing.
+### TC04 - Add a single item to the cart
+- Verify that adding one product updates the cart badge and the cart state.
 
-**Steps:**
-1. Log in and add a product to the cart.
-2. Start checkout.
-3. Leave the first name, last name, or postal code empty and click Continue.
-4. Repeat with different combinations of missing values.
+### TC05 - Add multiple items to the cart
+- Verify that multiple products can be added and remain visible in the cart summary.
 
-**Expected Results:**
-- The user remains on the information page.
-- Error messages indicate which field is required.
-- The order cannot continue until all required fields are provided.
+### TC06 - Remove an item from the cart from the inventory page
+- Verify that removing a product decreases the cart count and updates the cart state.
 
-### TC03 - Cancel checkout flow
-**Objective:** Confirm that the user can cancel the checkout process and return to the cart.
+### TC07 - Cart review page shows selected items and total
+- Verify that the cart page displays item names, descriptions, prices, and totals.
 
-**Steps:**
-1. Log in and add a product to the cart.
-2. Start checkout, enter valid information, and continue to the overview page.
-3. Click Cancel.
+### TC08 - Checkout is blocked when required fields are empty
+- Verify that leaving the first name, last name, or postal code empty shows the correct validation error and blocks progression.
 
-**Expected Results:**
-- The user returns to the cart page.
-- The checkout flow is interrupted without completing the order.
+### TC09 - Checkout advances when all required fields are present
+- Verify that the checkout form moves to the overview page when all required values are entered.
+
+### TC10 - Order overview shows summary and payment details
+- Verify that the overview page displays item summary, payment information, shipping information, and totals.
+
+### TC11 - Finish order completes purchase successfully
+- Verify that the Finish action leads to the confirmation page with a success message.
+
+### TC12 - Cancel checkout returns the user to the inventory page
+- Verify that canceling during checkout returns the user to the products page.
+
+### TC13 - Back Home returns the user to inventory
+- Verify that the confirmation page Back Home action returns the user to the products page.
+
+### TC14 - Empty cart cannot proceed to checkout
+- Verify that the cart state prevents checkout progression when no products are present.
 
 ## Test Data
+- Valid credentials: standard_user / secret_sauce
+- Invalid credentials: standard_user / wrong_password
 - Valid first name: Jane
 - Valid last name: Doe
 - Valid postal code: 12345
 - Empty values for validation testing
 
 ## Notes
-- Tests should use accessible selectors where possible.
-- Assertions should verify visible text and state changes.
+- Tests should use stable data-test selectors where possible.
+- Assertions should verify visible text, counters, and navigation state.
 - The suite should be runnable in Chromium, Firefox, and WebKit.
