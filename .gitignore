@@ -1,8 +1,12 @@
 
 # Playwright
 node_modules/
-/test-results/
-/playwright-report/
+/test-results/*
+!/test-results/.last-run.json
+!/test-results/SCRUM-101-Beautiful-Report.html
+!/test-results/SCRUM-101-Expanded-Report.md
+/playwright-report/*
+!/playwright-report/index.html
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
