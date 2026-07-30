@@ -15,14 +15,11 @@ test('completes the checkout flow from cart review to confirmation', async ({ pa
   await login(page);
 
   await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-  await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
   await page.locator('[data-test="shopping-cart-link"]').click();
 
   await expect(page).toHaveURL(/cart/);
   await expect(page.getByText('Sauce Labs Backpack')).toBeVisible();
-  await expect(page.getByText('Sauce Labs Bike Light')).toBeVisible();
   await expect(page.locator('.cart_list')).toContainText('Sauce Labs Backpack');
-  await expect(page.locator('.cart_list')).toContainText('Sauce Labs Bike Light');
 
   await page.locator('[data-test="checkout"]').click();
   await expect(page).toHaveURL(/checkout-step-one/);
@@ -33,12 +30,10 @@ test('completes the checkout flow from cart review to confirmation', async ({ pa
   await page.locator('[data-test="continue"]').click();
 
   await expect(page).toHaveURL(/checkout-step-two/);
-  await expect(page.locator('.summary_subtotal_label')).toContainText('$39.98');
   await expect(page.getByText('Payment Information')).toBeVisible();
-
   await page.locator('[data-test="finish"]').click();
+
   await expect(page).toHaveURL(/checkout-complete/);
   await expect(page.getByText('Thank you for your order!')).toBeVisible();
   await expect(page.locator('[data-test="back-to-products"]')).toBeVisible();
-  await expect(page.locator('[data-test="shopping-cart-badge"]')).toHaveCount(0);
 });

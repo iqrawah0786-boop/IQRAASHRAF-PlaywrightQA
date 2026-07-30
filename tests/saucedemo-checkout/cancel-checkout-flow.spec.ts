@@ -11,7 +11,7 @@ async function login(page: Parameters<typeof test>[0]['page']) {
   await expect(page).toHaveURL(/inventory/);
 }
 
-test('allows the user to cancel checkout and return to the cart', async ({ page }) => {
+test('allows the user to cancel checkout and return to the products page', async ({ page }) => {
   await login(page);
   await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
   await page.locator('[data-test="shopping-cart-link"]').click();
